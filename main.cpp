@@ -25,12 +25,6 @@ int main() {
     inputStream.close();
     std::cout << "ROM loaded into memory at 0x200\n";
 
-    /* while(chip8.hasMoreOpcodes()){
-        std::cout << "Next OpCode: 0x" 
-          << std::hex << std::uppercase << std::setw(4) << std::setfill('0') 
-          << chip8.readNextOpCode() << "\n";
-
-    } */
 
     
     while (chip8.hasMoreOpcodes()) {
