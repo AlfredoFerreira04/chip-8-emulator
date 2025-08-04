@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
     }
 
     // Determine ROM file to load
-    std::string romPath = "assets/ROMS/TETRIS"; // Default ROM
+    std::string romPath = "assets/ROMS/5-quirks.ch8"; // Default ROM
     
     // If a ROM file is specified as a command line argument, use it instead
     if (argc > 1) {
