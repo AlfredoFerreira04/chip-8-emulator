@@ -1,11 +1,12 @@
+// .vscode/launch.json
 {
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug Chip-8",
+      "name": "Debug CHIP-8 Emulator",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/chip8_emulator",
+      "program": "${workspaceFolder}/chip8_debug",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
@@ -17,10 +18,64 @@
           "description": "Enable pretty-printing for gdb",
           "text": "-enable-pretty-printing",
           "ignoreFailures": true
+        },
+        {
+          "description": "Set Disassembly Flavor to Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
         }
       ],
-      "preLaunchTask": "build",
-      "miDebuggerPath": "/usr/bin/gdb"
+      "preLaunchTask": "Build Debug"
+    },
+    {
+      "name": "Debug with IBM ROM",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/chip8_debug",
+      "args": ["assets/ROMS/ibm.ch8"],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set Disassembly Flavor to Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "Build Debug"
+    },
+    {
+      "name": "Debug with BC_test ROM",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/chip8_debug",
+      "args": ["assets/ROMS/BC_test.ch8"],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set Disassembly Flavor to Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "Build Debug"
     }
   ]
 }

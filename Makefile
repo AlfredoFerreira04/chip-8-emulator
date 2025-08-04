@@ -1,6 +1,7 @@
 # Compiler and flags
 CXX = g++
-CXXFLAGS = -Wall -Wextra -std=c++17
+CXXFLAGS = -Wall -Wextra -std=c++17 `sdl2-config --cflags`
+LDFLAGS = `sdl2-config --libs`
 DEBUGFLAGS = -g
 
 # Output binary names
@@ -18,7 +19,7 @@ DEBUG_OBJS = $(SRCS:.cpp=.debug.o)
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $^
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
 
 # Rule to compile .cpp files to .o files
 %.o: %.cpp
@@ -32,7 +33,7 @@ $(TARGET): $(OBJS)
 debug: $(DEBUG_TARGET)
 
 $(DEBUG_TARGET): $(DEBUG_OBJS)
-	$(CXX) $(CXXFLAGS) $(DEBUGFLAGS) -o $@ $^
+	$(CXX) $(CXXFLAGS) $(DEBUGFLAGS) -o $@ $^ $(LDFLAGS)
 
 # Clean rule to delete compiled files
 clean:
